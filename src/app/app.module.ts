@@ -1,3 +1,4 @@
+import { NotFoundModule } from './errors/not-found/not-found.module';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { AppRoutingModule } from "./app.routing.module";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
@@ -9,7 +10,7 @@ import { PhotoModule } from "./photos/photo.module";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [PhotoModule, BrowserModule,AppRoutingModule],
+  imports: [PhotoModule, BrowserModule, NotFoundModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
