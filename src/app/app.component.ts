@@ -1,21 +1,23 @@
-import { Component } from '@angular/core';
+import { PhotoService } from './photos/photo/photo.service';
+import { Component, OnInit } from '@angular/core';
+
+import { Photo } from './photos/photo/photo';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit{
 
-  photos = [
-    {
-      description: 'papagaio',
-      url: 'https://www.cevek.com.br/blog/wp-content/uploads/2020/06/papagaio-de-estima%C3%A7%C3%A3o-e-suas-principais-caracter%C3%ADsticas-min-1140x641.jpg',
-    },
-    {
-      description: 'papagaio',
-      url: 'https://www.cevek.com.br/blog/wp-content/uploads/2020/06/papagaio-de-estima%C3%A7%C3%A3o-e-suas-principais-caracter%C3%ADsticas-min-1140x641.jpg',
+    photos: Photo[] = [];
+
+    constructor(private photoService: PhotoService) { }
+
+    ngOnInit(): void {
+      this.photoService
+        .listFromUser('flavio')
+        .subscribe(photos => this.photos = photos);
     }
-  ]
+
 }
