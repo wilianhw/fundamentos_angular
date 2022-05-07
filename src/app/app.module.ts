@@ -1,15 +1,15 @@
-import { PhotoComponent } from './photo/photo.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'
+import { PhotoModule } from './photos/photo.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotoComponent
   ],
   imports: [
+    PhotoModule,
     BrowserModule
   ],
   providers: [],
